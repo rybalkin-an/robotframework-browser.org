@@ -1,0 +1,5 @@
+registrieren button: id=modal-iframe >>> "Registrieren"
+email input: id=modal-iframe >>> id=forms/formRegistration_email
+vorname input: id=modal-iframe >>> id=forms/formRegistration_forename
+nachname input: id=modal-iframe >>> id=forms/formRegistration_surname
+jetzt registrieren button: id=modal-iframe >>> css=button.form-button[name='submit_input'][value='Jetzt registrieren']

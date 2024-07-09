@@ -1,0 +1,5 @@
+title: h1.heading-title
+vorname value: .userdata__item:nth-of-type(1) .value
+nachname value: .userdata__item:nth-of-type(2) .value
+email value: xpath=//span[contains(@class, 'userdata__item--large') and .//span[text()='E-Mail']]//span[contains(@class, 'value')]
+

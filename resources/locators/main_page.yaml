@@ -1,0 +1,2 @@
+anmelden button: xpath=//a[@title='Melden Sie sich mit Ihrem Tagesspiegel-Konto an']
+alle akzeptieren button: id=sp_message_iframe_1038892 >>> "Alle akzeptieren"
