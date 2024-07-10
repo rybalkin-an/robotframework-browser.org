@@ -1,12 +1,14 @@
 *** Settings ***
 Library    Browser
-Variables    resources/locators/main_page.yaml
-Variables    resources/locators/registration_form.yaml
+Resource    base_page.resource
+Variables    resources${/}locators${/}main_page.yaml
+Variables    resources${/}locators${/}registration_form.yaml
 
 *** Keywords ***
 Open main page
+    ${url}    base_page.Get Environment URL
     Browser.New Browser    chromium    headless=No
-    Browser.New Page    https://www.tagesspiegel.de/
+    Browser.New Page    ${url}
     Browser.Get Title    ==    Aktuelle News: Nachrichten aus Berlin und der Welt
 
 Accept Cookies

@@ -1,6 +1,6 @@
 *** Settings ***
 Library    Browser
-Variables    resources/locators/set_password_page.yaml
+Variables    resources${/}locators${/}set_password_page.yaml
 
 *** Keywords ***
 Open Set Password Page

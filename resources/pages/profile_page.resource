@@ -1,6 +1,6 @@
 *** Settings ***
 Library    Browser
-Variables    resources/locators/profile_page.yaml
+Variables    resources${/}locators${/}profile_page.yaml
 
 *** Keywords ***
 Validate User

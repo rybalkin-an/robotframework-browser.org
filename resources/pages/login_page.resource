@@ -1,6 +1,6 @@
 *** Settings ***
 Library    Browser
-Variables    resources/locators/login_page.yaml
+Variables    resources${/}locators${/}login_page.yaml
 
 *** Keywords ***
 Open Login page

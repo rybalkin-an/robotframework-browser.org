@@ -1,6 +1,6 @@
 *** Settings ***
 Library    Browser
-Variables    resources/locators/registration_form.yaml
+Variables    resources${/}locators${/}registration_form.yaml
 
 *** Keywords ***
 Click Registrieren button
