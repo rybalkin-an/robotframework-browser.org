@@ -1,0 +1,3 @@
+login page email input: id=forms/formLogin_email
+login page password input: id=forms/formLogin_password
+login page anmelden button: button[value="Anmelden"]
