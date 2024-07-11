@@ -10,7 +10,7 @@ This project leverages the Robot Framework with the Browser library for automate
     - This email is used to fill out the registration form and create a new account.
    
 2. **Fill registration form**:
-    - [Robot Framework Browser](https://github.com/MarketSquare/robotframework-browser)**: For browser automation.
+    - [Robot Framework Browser](https://github.com/MarketSquare/robotframework-browser): For browser automation.
    
 3. **Get a Confirmation Email**:
     - The system retrieves the confirmation email sent to the generated random email address.
@@ -29,9 +29,6 @@ This project leverages the Robot Framework with the Browser library for automate
 7. **Verify That the User is Logged In**:
     - After logging in, the system verifies that the user is successfully logged in by checking for certain elements or user information on the profile page.
 
-## Libraries Used
-- **
-- **[RESTinstance](https://asyrjasalo.github.io/RESTinstance/)**: For making API calls to services like 1secmail.
 
 ## Prerequisites
 1. Installed NodeJS v20.15.1 https://nodejs.org/en/download/package-manager
@@ -85,3 +82,6 @@ rfbrowser init
 ```sh
 robot --outputdir .\results --pythonpath .\ --loglevel TRACE tests
 ```
+
+#### NOTE: Running Tests with ENVIRONMENT Variable
+Before running your tests, ensure you have set the ENVIRONMENT variable to either 'production', 'staging', or 'test'. This variable determines which URL will be used in your test scenarios. If no ENVIRONMENT variable is then, then test suite will run 'production'
