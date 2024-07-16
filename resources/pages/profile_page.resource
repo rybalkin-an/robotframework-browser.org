@@ -3,7 +3,7 @@ Library    Browser
 Variables    resources${/}locators${/}profile_page.yaml
 
 *** Keywords ***
-Validate User
+Verify user is logged in
     [Arguments]    ${email}    ${firstname}    ${lastname}
     Browser.Get Text    ${title}    contains    ${firstname}    ${lastname}
     Browser.Get Text    ${vorname value}    ==    ${firstname}

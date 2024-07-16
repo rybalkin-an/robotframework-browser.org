@@ -2,8 +2,6 @@
 
 This project leverages the Robot Framework with the Browser library for automated web testing, specifically focusing on testing a login form. The project includes the following key steps:
 
-### Project Workflow
-
 1. **Create a New Account Using a Random Email Address**:
     - A random email address is generated using the [1secmail](https://www.1secmail.com/api/#) service via API.
     - For the API calls [RESTinstance](https://asyrjasalo.github.io/RESTinstance/) library is used 
@@ -32,7 +30,7 @@ This project leverages the Robot Framework with the Browser library for automate
 
 ## Prerequisites
 1. Installed NodeJS v20.15.1 https://nodejs.org/en/download/package-manager
-2. Installed Python 3.9.13 https://www.python.org/downloads/
+2. Installed Python 3.11.5 https://www.python.org/downloads/
 
 ## Setup Instructions
 

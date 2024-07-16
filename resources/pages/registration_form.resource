@@ -2,10 +2,14 @@
 Library    Browser
 Variables    resources${/}locators${/}registration_form.yaml
 
+*** Variables ***
+${message}    In Kürze erhalten Sie eine E-Mail, mit der Sie Ihr Konto aktivieren und sich ein Passwort vergeben können.
+
 *** Keywords ***
 Click Registrieren button
     Browser.Click    ${registrieren button}
-    Browser.Wait For Elements State    ${email input}    visible    timeout=5 s
+    Browser.Wait For Elements State    ${vorname input}    visible
+    Browser.Wait For Elements State    ${nachname input}    visible
 
 Fill registration form
     [Arguments]    ${email}    ${vorname}    ${nachname}
@@ -15,3 +19,4 @@ Fill registration form
 
 Click Jetzt Registrieren button
     Browser.Click    ${jetzt registrieren button}
+    Browser.Get Element    text=${message}

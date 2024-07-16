@@ -7,7 +7,7 @@ ${URL_STAGING}       https://staging.tagesspiegel.de/
 ${URL_TEST}          https://test1.tagesspiegel.de/
 
 *** Keywords ***
-Get Environment URL
+Get URL based on Environment Variable
     ${env}    Get Environment Variable    ENVIRONMENT    production
     ${url}=    Set Variable    ${URL_PRODUCTION}
     Run Keyword If    '${env}' == 'staging'    Set Variable    ${URL_STAGING}

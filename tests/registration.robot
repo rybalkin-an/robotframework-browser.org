@@ -14,8 +14,8 @@ ${firstname}    vorhname
 ${lastname}     nachname
 
 *** Test Cases ***
-Registration
-    ${email}    email_api.Get random email
+Register new user
+    ${email}    email_api.Create random email
 
     main_page.Open main page
     main_page.Accept Cookies
@@ -25,9 +25,7 @@ Registration
     registration_form.Fill registration form    ${email}    ${firstname}    ${lastname}
     registration_form.Click Jetzt Registrieren button
     
-    ${get_messages_response}    email_api.Get messages    ${email}
-    ${read_messages_response_body}    email_api.Read message    ${email}    ${get_messages_response}
-    ${verify-url}    email_api.Extract URL from Email Content    ${read_messages_response_body}
+    ${verify-url}    email_api.Get registration link from email     ${email}
 
     set_password_page.Open Set Password Page    ${verify-url}
     set_password_page.Set New Password    ${password}
@@ -35,5 +33,5 @@ Registration
     login_page.Open Login page
     login_page.Login    ${email}    ${password}
 
-    profile_page.Validate User    ${email}    ${firstname}    ${lastname}
+    profile_page.Verify user is logged in    ${email}    ${firstname}    ${lastname}
 
