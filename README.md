@@ -3,7 +3,7 @@
 
 ***
 
-## Run in Docker
+## Run with Docker
 
 1. Make sure that Docker is up and running
 
@@ -20,7 +20,8 @@ docker run -e ENVIRONMENT=production -v ${PWD}/results:/usr/src/app/results -v $
 
 ***
 
-## Setup Instructions Without Docker
+## Run without Docker
+
 
 ### Prerequisites
 1. Installed NodeJS v20.15.1 https://nodejs.org/en/download/package-manager
