@@ -28,11 +28,29 @@ This project leverages the Robot Framework with the Browser library for automate
     - After logging in, the system verifies that the user is successfully logged in by checking for certain elements or user information on the profile page.
 
 
-## Prerequisites
+## Setup Instructions
+
+***
+
+## Docker
+
+1. Build the Docker Image
+```sh
+docker build -t robot-framework-browser .
+```
+
+2. Run the Container
+```sh
+docker run -e ENVIRONMENT=production -v ${PWD}/results:/usr/src/app/results -v ${PWD}/tests:/usr/src/app/tests -v ${PWD}/resources:/usr/src/app/resources robot-framework-browser
+```
+
+***
+## Without Docker
+
+### Prerequisites
 1. Installed NodeJS v20.15.1 https://nodejs.org/en/download/package-manager
 2. Installed Python 3.11.5 https://www.python.org/downloads/
 
-## Setup Instructions
 
 ### 1. Update pip
 Ensure you have the latest version of pip installed:
@@ -84,16 +102,3 @@ Before running your tests, ensure you have set the ENVIRONMENT variable to eithe
 robot --outputdir .\results --pythonpath .\ --loglevel TRACE tests
 ```
 
-***
-
-## Docker
-
-1. Build the Docker Image
-```sh
-docker build -t robot-framework-browser .
-```
-
-2. Run the Container
-```sh
-docker run -e ENVIRONMENT=production -v ${PWD}/results:/usr/src/app/results -v ${PWD}/tests:/usr/src/app/tests -v ${PWD}/resources:/usr/src/app/resources robot-framework-browser
-```
