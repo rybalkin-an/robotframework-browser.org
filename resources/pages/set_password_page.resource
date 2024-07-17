@@ -7,9 +7,9 @@ ${PASSWORD_PAGE_TITLE_VALUE}    Mein Tagesspiegel
 
 *** Keywords ***
 Open Set Password Page
-    [Arguments]    ${verify-url}
+    [Arguments]    ${verify_url}
     Browser.New Browser    ${BROWSER}    headless=${HEADLESS_VALUE}
-    Browser.New Page    ${verify-url}
+    Browser.New Page    ${verify_url}
     Browser.Get Title    ==    ${PASSWORD_PAGE_TITLE_VALUE}
 
 Set New Password

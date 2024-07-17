@@ -5,8 +5,8 @@ Library    OperatingSystem
 Get URL based on Environment Variable
     [Arguments]    ${prod}    ${stage}    ${test}
     ${env}    Get Environment Variable    ENVIRONMENT    production
-    ${url}=    Set Variable     ${prod}
-    Run Keyword If    '${env}' == 'staging'    Set Variable    ${prod}
-    Run Keyword If    '${env}' == 'test'    Set Variable   ${test}
-    Run Keyword Unless    '${env}' == 'production'    Fail    Invalid environment: ${env}
-    RETURN    ${url}
+    Run Keyword Unless    '${env}' in ['production', 'staging', 'test']    Fail    Invalid environment: ${env}
+    ${url}    Run Keyword If    '${env}' == 'production'    Set Variable    ${prod}
+    ...    ELSE IF    '${env}' == 'staging'    Set Variable    ${stage}
+    ...    ELSE IF    '${env}' == 'test'    Set Variable    ${test}
+    RETURN   ${url}

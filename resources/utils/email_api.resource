@@ -2,9 +2,10 @@
 Library   Collections
 Library   DateTime
 Library   REST    https://www.1secmail.com/api/v1
+Variables    resources${/}configs${/}config.yaml
 
 *** Variables ***
-${create-password-url-regex}    https:\/\/mein\.tagesspiegel\.de\/verify-token\/[a-f0-9]{40}
+${create_password_url_regex}    https:\/\/mein\.tagesspiegel\.de\/verify-token\/[a-f0-9]{40}
 
 *** Keywords ***
 _Get messages request
@@ -17,7 +18,7 @@ _Get messages request
 
 _Wait and get messages
     [Arguments]    ${email}
-    ${response}    Wait Until Keyword Succeeds    30x    1s    _Get messages request    ${email}
+    ${response}    Wait Until Keyword Succeeds    ${RETRY_VALUE}    ${RETRY_INTERVAL_VALUE}    _Get messages request    ${email}
     ${get_messages_response}    Set Variable    ${response['body']}
     RETURN    ${get_messages_response}
 
@@ -32,7 +33,7 @@ _Read message
 
 _Extract URL from Email Content
     [Arguments]    ${read_message_response_body}
-    ${matches}    Get Regexp Matches    ${read_message_response_body}    ${create-password-url-regex}
+    ${matches}    Get Regexp Matches    ${read_message_response_body}    ${create_password_url_regex}
     ${verify-url}    Set Variable If    ${matches}    ${matches}[0]    []
     Should Not Be Equal    ${verify-url}    []
     RETURN    ${verify-url}
@@ -41,9 +42,9 @@ Get registration link from email
     [Arguments]    ${email}
     ${get_messages_response}    _Wait and get messages    ${email}
     ${read_messages_response_body}    _Read message    ${email}    ${get_messages_response}
-    ${verify-url}    _Extract URL from Email Content    ${read_messages_response_body}
-    Should Match Regexp    ${verify-url}    ${create-password-url-regex}
-    RETURN    ${verify-url}
+    ${url_from_mail}    _Extract URL from Email Content    ${read_messages_response_body}
+    Should Match Regexp    ${url_from_mail}    ${create_password_url_regex}
+    RETURN    ${url_from_mail}
 
 Create random email
     ${response}    REST.GET    /?action=genRandomMailbox
