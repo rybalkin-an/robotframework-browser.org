@@ -35,12 +35,15 @@ This project leverages the Robot Framework with the Browser library for automate
 
 ## Docker
 
-1. Build the Docker Image
+1. Make sure that Docker is up and running
+
+
+2. Build the Docker Image
 ```sh
 docker build -t robot-framework-browser .
 ```
 
-2. Run the Container
+3. Run the Container
 ```sh
 docker run -e ENVIRONMENT=production -v ${PWD}/results:/usr/src/app/results -v ${PWD}/tests:/usr/src/app/tests -v ${PWD}/resources:/usr/src/app/resources robot-framework-browser
 ```
