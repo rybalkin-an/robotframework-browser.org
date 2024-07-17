@@ -1,6 +1,7 @@
 *** Settings ***
 Library    Browser
-Resource    base_page.resource
+Resource    resources${/}utils${/}url_management.resource
+Resource    resources${/}utils${/}browser_management.resource
 Variables    resources${/}constants${/}urls.yaml
 Variables    resources${/}locators${/}main_page.yaml
 Variables    resources${/}locators${/}registration_form.yaml
@@ -10,9 +11,8 @@ ${MAIN_PAGE_TITLE_VALUE}   Aktuelle News: Nachrichten aus Berlin und der Welt
 
 *** Keywords ***
 Open main page
-    ${url}    base_page.Get URL based on Environment Variable    ${URL_PRODUCTION}     ${URL_STAGING}    ${URL_TEST}
-    Browser.New Browser    ${BROWSER}    headless=${HEADLESS_VALUE}
-    Browser.New Page    ${url}
+    ${url}    url_management.Get URL based on Environment Variable    ${URL_PRODUCTION}     ${URL_STAGING}    ${URL_TEST}
+    browser_management.Open Page    ${url}
     Browser.Get Title    ==    ${MAIN_PAGE_TITLE_VALUE}
 
 Accept Cookies

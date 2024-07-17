@@ -1,5 +1,6 @@
 *** Settings ***
 Library    Browser
+Resource    resources${/}utils${/}browser_management.resource
 Variables    resources${/}locators${/}set_password_page.yaml
 
 *** Variables ***
@@ -8,8 +9,7 @@ ${PASSWORD_PAGE_TITLE_VALUE}    Mein Tagesspiegel
 *** Keywords ***
 Open Set Password Page
     [Arguments]    ${verify_url}
-    Browser.New Browser    ${BROWSER}    headless=${HEADLESS_VALUE}
-    Browser.New Page    ${verify_url}
+    browser_management.Open Page    ${verify_url}
     Browser.Get Title    ==    ${PASSWORD_PAGE_TITLE_VALUE}
 
 Set New Password
