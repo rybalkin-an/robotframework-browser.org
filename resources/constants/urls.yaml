@@ -1,0 +1,6 @@
+URL_PRODUCTION:    https://www.tagesspiegel.de/
+URL_STAGING:       https://staging.tagesspiegel.de/
+URL_TEST:          https://test1.tagesspiegel.de/
+LOGIN_URL_PRODUCTION:    https://mein.tagesspiegel.de/
+LOGIN_URL_STAGING:       https://mein.staging.tagesspiegel.de/
+LOGIN_URL_TEST:          https://mein.test1.tagesspiegel.de/

@@ -1,13 +1,11 @@
 *** Settings ***
 Library    Browser
 Variables    resources${/}locators${/}login_page.yaml
+Variables    resources${/}constants${/}urls.yaml
 Resource    base_page.resource
 
 *** Variables ***
 ${LOGIN_PAGE_TITLE_VALUE}    Mein Tagesspiegel
-${LOGIN_URL_PRODUCTION}    https://mein.tagesspiegel.de/
-${LOGIN_URL_STAGING}       https://mein.staging.tagesspiegel.de/
-${LOGIN_URL_TEST}          https://mein.test1.tagesspiegel.de/
 
 *** Keywords ***
 Open Login page

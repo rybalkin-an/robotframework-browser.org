@@ -1,14 +1,12 @@
 *** Settings ***
 Library    Browser
 Resource    base_page.resource
+Variables    resources${/}constants${/}urls.yaml
 Variables    resources${/}locators${/}main_page.yaml
 Variables    resources${/}locators${/}registration_form.yaml
 
 *** Variables ***
 ${MAIN_PAGE_TITLE_VALUE}   Aktuelle News: Nachrichten aus Berlin und der Welt
-${URL_PRODUCTION}    https://www.tagesspiegel.de/
-${URL_STAGING}       https://staging.tagesspiegel.de/
-${URL_TEST}          https://test1.tagesspiegel.de/
 
 *** Keywords ***
 Open main page
