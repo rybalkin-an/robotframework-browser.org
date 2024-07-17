@@ -10,10 +10,11 @@ ${create_password_url_regex}    https:\/\/mein\.tagesspiegel\.de\/verify-token\/
 *** Keywords ***
 _Get messages request
     [Arguments]    ${email}
+    ${empty_list}    Create List
     ${login}    Set Variable    ${email.split('@')[0]}
     ${domain}    Set Variable    ${email.split('@')[1]}
     ${response}    REST.GET    /?action=getMessages&login=${login}&domain=${domain}
-    Should Not Be Equal    ${response}    []
+    Should Not Be Equal    ${response['body']}   ${empty_list}
     RETURN    ${response}
 
 _Wait and get messages
