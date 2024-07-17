@@ -83,3 +83,17 @@ Before running your tests, ensure you have set the ENVIRONMENT variable to eithe
 ```sh
 robot --outputdir .\results --pythonpath .\ --loglevel TRACE tests
 ```
+
+***
+
+## Docker
+
+1. Build the Docker Image
+```sh
+docker build -t robot-framework-browser .
+```
+
+2. Run the Container
+```sh
+docker run -e ENVIRONMENT=production -v ${PWD}/results:/usr/src/app/results -v ${PWD}/tests:/usr/src/app/tests -v ${PWD}/resources:/usr/src/app/resources robot-framework-browser
+```
