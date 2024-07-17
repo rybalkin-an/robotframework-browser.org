@@ -3,29 +3,30 @@
 This project leverages the Robot Framework with the Browser library for automated web testing, specifically focusing on testing a login form. The project includes the following key steps:
 
 1. **Create a New Account Using a Random Email Address**:
-    - A random email address is generated using the [1secmail](https://www.1secmail.com/api/#) service via API.
+    - A random email address is generated using the [1secmail](https://www.1secmail.com/api/#) service via API
     - For the API calls [RESTinstance](https://asyrjasalo.github.io/RESTinstance/) library is used 
-    - This email is used to fill out the registration form and create a new account.
    
-2. **Fill registration form**:
-    - [Robot Framework Browser](https://github.com/MarketSquare/robotframework-browser): For browser automation.
+2. **Fill registration form**: 
+    - Random email is used to fill the registration form 
+    - [Robot Framework Browser](https://github.com/MarketSquare/robotframework-browser) is used for browser automation
+
+3. **Send registration form**
    
-3. **Get a Confirmation Email**:
-    - The system retrieves the confirmation email sent to the generated random email address.
+4. **Get a Confirmation Email**:
+    - The system retrieves the confirmation email sent to the generated random email address
 
-4. **Click the Verifying Email Link**:
-    - The confirmation email contains a verification link.
-    - The system extracts and clicks this link to verify the email address.
+5. **Click the Verifying Email Link**:
+    - The confirmation email contains a verification link
+    - The system extracts and clicks this link to verify the email address
 
-5. **Set Up Password**:
-    - After verifying the email, the system prompts the user to set up a password.
-    - The password is set according to the defined requirements.
+6. **Set Up Password**:
+    - After verifying the email, the system prompts the user to set up a password
 
-6. **Login**:
-    - Using the verified email and the newly set password, the system logs into the application.
+7. **Login**:
+    - Using the verified email and the newly set password
 
-7. **Verify That the User is Logged In**:
-    - After logging in, the system verifies that the user is successfully logged in by checking for certain elements or user information on the profile page.
+8. **Verify That the User is Logged In**:
+    - After logging in, the system verifies that the user is successfully logged in by checking for certain elements or user information on the profile page
 
 
 ## Setup Instructions
