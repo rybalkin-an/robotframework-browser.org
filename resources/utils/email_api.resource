@@ -1,6 +1,5 @@
 *** Settings ***
 Library   Collections
-Library   DateTime
 Library   REST    https://www.1secmail.com/api/v1
 Variables    resources${/}configs${/}config.yaml
 
