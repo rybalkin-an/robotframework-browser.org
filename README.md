@@ -18,6 +18,7 @@ docker build -t robot-framework-browser .
 docker run -e ENVIRONMENT=production -v ${PWD}/results:/usr/src/app/results -v ${PWD}/tests:/usr/src/app/tests -v ${PWD}/resources:/usr/src/app/resources robot-framework-browser
 ```
 
+4. Test report can be find in ```/results``` directory
 ***
 
 ## Run without Docker
