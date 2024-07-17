@@ -20,8 +20,7 @@ _Get messages request
 _Wait and get messages
     [Arguments]    ${email}
     ${response}    Wait Until Keyword Succeeds    ${RETRY_VALUE}    ${RETRY_INTERVAL_VALUE}    _Get messages request    ${email}
-    ${get_messages_response}    Set Variable    ${response['body']}
-    RETURN    ${get_messages_response}
+    RETURN    ${response['body']}
 
 _Read message
     [Arguments]    ${email}    ${get_messages_response}
@@ -29,15 +28,13 @@ _Read message
     ${domain}    Set Variable    ${email.split('@')[1]}
     ${id}    Set Variable    ${get_messages_response[0]['id']}
     ${read_message_response}    REST.GET    /?action=readMessage&login=${login}&domain=${domain}&id=${id}
-    ${read_message_response_body}    Set Variable    ${read_message_response['body']}
-    RETURN    ${read_message_response_body['htmlBody']}
+    RETURN    ${read_message_response['body']['htmlBody']}
 
 _Extract URL from Email Content
     [Arguments]    ${read_message_response_body}
-    ${matches}    Get Regexp Matches    ${read_message_response_body}    ${create_password_url_regex}
-    ${verify-url}    Set Variable If    ${matches}    ${matches}[0]    []
-    Should Not Be Equal    ${verify-url}    []
-    RETURN    ${verify-url}
+    ${url_from_email}    Get Regexp Matches    ${read_message_response_body}    ${create_password_url_regex}
+    Length Should Be    ${url_from_email}    2
+    RETURN    ${url_from_email}[0]
 
 Get registration link from email
     [Arguments]    ${email}
@@ -48,6 +45,7 @@ Get registration link from email
     RETURN    ${url_from_mail}
 
 Create random email
+    ${empty_list}    Create List
     ${response}    REST.GET    /?action=genRandomMailbox
-    ${email}    Set Variable    ${response['body'][0]}
-    RETURN    ${email}
+    Should Not Be Equal    ${response['body']}   ${empty_list}
+    RETURN    ${response['body'][0]}
