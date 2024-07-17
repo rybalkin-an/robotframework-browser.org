@@ -76,10 +76,10 @@ Initialize the Browser environment and run the tests:
 rfbrowser init
 ```
 
+#### NOTE: Running Tests with ENVIRONMENT Variable
+Before running your tests, ensure you have set the ENVIRONMENT variable to either 'production', 'staging', or 'test'. This variable determines which URL will be used in your test scenarios. If no ENVIRONMENT variable is then, then test suite will run 'production'
+
 * Run Tests:
 ```sh
 robot --outputdir .\results --pythonpath .\ --loglevel TRACE tests
 ```
-
-#### NOTE: Running Tests with ENVIRONMENT Variable
-Before running your tests, ensure you have set the ENVIRONMENT variable to either 'production', 'staging', or 'test'. This variable determines which URL will be used in your test scenarios. If no ENVIRONMENT variable is then, then test suite will run 'production'
