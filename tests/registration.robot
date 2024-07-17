@@ -24,7 +24,7 @@ Register new user
     registration_form.Click Registrieren button
     registration_form.Fill registration form    ${email}    ${firstname}    ${lastname}
     registration_form.Click Jetzt Registrieren button
-    
+
     ${verify-url}    email_api.Get registration link from email     ${email}
 
     set_password_page.Open Set Password Page    ${verify-url}

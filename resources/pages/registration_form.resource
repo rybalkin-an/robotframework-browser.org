@@ -3,7 +3,7 @@ Library    Browser
 Variables    resources${/}locators${/}registration_form.yaml
 
 *** Variables ***
-${message}    In Kürze erhalten Sie eine E-Mail, mit der Sie Ihr Konto aktivieren und sich ein Passwort vergeben können.
+${MESSAGE}    In Kürze erhalten Sie eine E-Mail, mit der Sie Ihr Konto aktivieren und sich ein Passwort vergeben können.
 
 *** Keywords ***
 Click Registrieren button
@@ -19,4 +19,4 @@ Fill registration form
 
 Click Jetzt Registrieren button
     Browser.Click    ${jetzt registrieren button}
-    Browser.Get Element    text=${message}
+    Browser.Get Element    text=${MESSAGE}

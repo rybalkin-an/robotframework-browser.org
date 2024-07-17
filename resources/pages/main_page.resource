@@ -5,14 +5,17 @@ Variables    resources${/}locators${/}main_page.yaml
 Variables    resources${/}locators${/}registration_form.yaml
 
 *** Variables ***
-${Main Page Title Value}    Aktuelle News: Nachrichten aus Berlin und der Welt
+${MAIN_PAGE_TITLE_VALUE}   Aktuelle News: Nachrichten aus Berlin und der Welt
+${URL_PRODUCTION}    https://www.tagesspiegel.de/
+${URL_STAGING}       https://staging.tagesspiegel.de/
+${URL_TEST}          https://test1.tagesspiegel.de/
 
 *** Keywords ***
 Open main page
-    ${url}    base_page.Get URL based on Environment Variable
+    ${url}    base_page.Get URL based on Environment Variable    ${URL_PRODUCTION}     ${URL_STAGING}    ${URL_TEST}
     Browser.New Browser    chromium    headless=No
     Browser.New Page    ${url}
-    Browser.Get Title    ==    ${Main Page Title Value}
+    Browser.Get Title    ==    ${MAIN_PAGE_TITLE_VALUE}
 
 Accept Cookies
     Browser.Click     ${alle akzeptieren button}

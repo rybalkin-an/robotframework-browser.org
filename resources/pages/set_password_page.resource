@@ -3,14 +3,14 @@ Library    Browser
 Variables    resources${/}locators${/}set_password_page.yaml
 
 *** Variables ***
-${Password Page Title Value}    Mein Tagesspiegel
+${PASSWORD_PAGE_TITLE_VALUE}    Mein Tagesspiegel
 
 *** Keywords ***
 Open Set Password Page
     [Arguments]    ${verify-url}
     Browser.New Browser    chromium    headless=No
     Browser.New Page    ${verify-url}
-    Browser.Get Title    ==    ${Password Page Title Value}
+    Browser.Get Title    ==    ${PASSWORD_PAGE_TITLE_VALUE}
 
 Set New Password
     [Arguments]    ${secret}

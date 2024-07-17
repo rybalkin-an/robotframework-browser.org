@@ -1,15 +1,20 @@
 *** Settings ***
 Library    Browser
 Variables    resources${/}locators${/}login_page.yaml
+Resource    base_page.resource
 
 *** Variables ***
-${Login Page Title Value}    Mein Tagesspiegel
+${LOGIN_PAGE_TITLE_VALUE}    Mein Tagesspiegel
+${LOGIN_URL_PRODUCTION}    https://mein.tagesspiegel.de/
+${LOGIN_URL_STAGING}       https://mein.staging.tagesspiegel.de/
+${LOGIN_URL_TEST}          https://mein.test1.tagesspiegel.de/
 
 *** Keywords ***
 Open Login page
     Browser.New Browser    chromium    headless=No
-    Browser.New Page    https://mein.tagesspiegel.de/
-    Browser.Get Title    ==    ${Login Page Title Value}
+    ${login page url}    base_page.Get URL based on Environment Variable    ${LOGIN_URL_PRODUCTION}     ${LOGIN_URL_STAGING}    ${LOGIN_URL_TEST}
+    Browser.New Page     ${login page url}
+    Browser.Get Title    ==    ${LOGIN_PAGE_TITLE_VALUE}
 
 Login
     [Arguments]    ${email}    ${password}
